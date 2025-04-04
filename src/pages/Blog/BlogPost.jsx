@@ -5,6 +5,7 @@ import { format } from 'date-fns';
 import { blogPosts as initialBlogPosts } from '../../data/BlogPosts';
 import { CommentSection } from '../../components/Blog/CommentSection';
 import { ArrowLeft, Calendar, User, MessageCircle, Facebook, Twitter, Linkedin, Copy, Check } from 'lucide-react';
+import Footer from '../../components/layout/Footer';
 
 export const BlogPost = () => {
   const { id } = useParams();
@@ -79,43 +80,48 @@ export const BlogPost = () => {
   };
 
   return (
-    <div className="mt-20 bg-gray-50 min-h-screen pb-16">
-      <div className="relative h-[500px] bg-gray-900 mb-8">
-        <img src={post.imageUrl} alt={post.title} className="w-full h-full object-cover opacity-50" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-900/90" />
-        <div className="absolute bottom-0 left-0 right-0 p-8 text-white max-w-4xl mx-auto">
-          <button onClick={() => navigate(-1)} className="flex items-center text-gray-300 hover:text-white mb-6 group transition-colors">
-            <ArrowLeft size={20} className="mr-2 group-hover:-translate-x-1 transition-transform" />
-            Back to Blog
-          </button>
-          <span className="inline-block bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">{post.category}</span>
-          <h1 className="text-5xl font-bold mb-6">{post.title}</h1>
-          <div className="flex items-center space-x-6 text-gray-300">
-            <div className="flex items-center space-x-2"><User size={20} /><span className="font-medium">{post.author}</span></div>
-            <div className="flex items-center space-x-2"><Calendar size={20} /><span>{format(new Date(post.date), 'MMMM d, yyyy')}</span></div>
-            <div className="flex items-center space-x-2"><MessageCircle size={20} /><span>{post.comments?.length || 0} Comments</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div className="max-w-4xl mx-auto px-4">
-        <div className="bg-white rounded-xl shadow-sm p-8 mb-8 prose prose-lg max-w-none">
-          {renderContent(post.content)}
-        </div>
-
-        <div className="bg-white rounded-xl shadow-sm p-6 mb-8">
-          <h3 className="font-semibold text-gray-900 mb-4">Share this article</h3>
-          <div className="flex items-center space-x-4">
-            {['facebook', 'twitter', 'linkedin', 'copy'].map((platform) => (
-              <button key={platform} onClick={() => handleShare(platform)} className="p-2 rounded-full bg-blue-100 text-blue-600 hover:bg-blue-200 transition-colors" aria-label={`Share on ${platform}`}>
-                {platform === 'copy' ? (copied ? <Check size={20} /> : <Copy size={20} />) : platform === 'facebook' ? <Facebook size={20} /> : platform === 'twitter' ? <Twitter size={20} /> : <Linkedin size={20} />}
-              </button>
-            ))}
+    <>
+      <div className="mt-20 bg-gray-50 min-h-screen pb-16">
+        <div className="relative h-[500px] bg-gray-900 mb-8">
+          <img src={post.imageUrl} alt={post.title} className="w-full h-full object-cover opacity-50" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-900/90" />
+          <div className="absolute bottom-0 left-0 right-0 p-8 text-white max-w-4xl mx-auto">
+            <button onClick={() => navigate(-1)} className="flex items-center text-gray-300 hover:text-white mb-6 group transition-colors">
+              <ArrowLeft size={20} className="mr-2 group-hover:-translate-x-1 transition-transform" />
+              Back to Blog
+            </button>
+            <span className="inline-block bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">{post.category}</span>
+            <h1 className="text-5xl font-bold mb-6">{post.title}</h1>
+            <div className="flex items-center space-x-6 text-gray-300">
+              <div className="flex items-center space-x-2"><User size={20} /><span className="font-medium">{post.author}</span></div>
+              <div className="flex items-center space-x-2"><Calendar size={20} /><span>{format(new Date(post.date), 'MMMM d, yyyy')}</span></div>
+              <div className="flex items-center space-x-2"><MessageCircle size={20} /><span>{post.comments?.length || 0} Comments</span></div>
+            </div>
           </div>
         </div>
 
-        <CommentSection comments={post.comments || []} onAddComment={handleAddComment} />
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="bg-white rounded-xl shadow-sm p-8 mb-8 prose prose-lg max-w-none">
+            {renderContent(post.content)}
+          </div>
+
+          <div className="bg-white rounded-xl shadow-sm p-6 mb-8">
+            <h3 className="font-semibold text-gray-900 mb-4">Share this article</h3>
+            <div className="flex items-center space-x-4">
+              {['facebook', 'twitter', 'linkedin', 'copy'].map((platform) => (
+                <button key={platform} onClick={() => handleShare(platform)} className="p-2 rounded-full bg-blue-100 text-blue-600 hover:bg-blue-200 transition-colors" aria-label={`Share on ${platform}`}>
+                  {platform === 'copy' ? (copied ? <Check size={20} /> : <Copy size={20} />) : platform === 'facebook' ? <Facebook size={20} /> : platform === 'twitter' ? <Twitter size={20} /> : <Linkedin size={20} />}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <CommentSection comments={post.comments || []} onAddComment={handleAddComment} />
+        </div>
       </div>
-    </div>
+      
+      {/* footer */}
+      <Footer/>
+    </>
   );
 };

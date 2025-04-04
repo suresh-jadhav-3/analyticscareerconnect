@@ -1,31 +1,28 @@
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
+
 const faqs = [
   {
-    question: 'What is Analytics Career Connect?',
-    answer: 'A platform bridging skill gaps through tailored mentorship, internships, and job assistance for students and professionals in data, AI, and technology.',
+    question: "What is Analytics Career Connect?",
+    answer: "A platform that bridges the skill gap in tech by offering mentorship, internships, and job assistance."
   },
   {
-    question: 'Is the internship program free or paid?',
-    answer: 'Our internship program is completely free, providing hands-on experience with 60% focus on learning and 40% on real-world tasks.',
+    question: "Who can benefit from our programs?",
+    answer: "Students, job seekers, professionals looking to upskill, and businesses seeking skilled tech talent."
   },
   {
-    question: 'Is the mentorship program paid?',
-    answer: 'Yes, our mentorship program is a practice-oriented approach to tech education, unlike traditional college or institute training. We provide personalized mentorship and continuous support until you secure a job. The program follows a 50-50 payment model, where you pay 50% at the start and the remaining 50% only after securing a job.'
+    question: "Is the internship program free or paid?",
+    answer: "It's completely free, focusing on real-world learning and practical projects."
   },
   {
-    question: 'Who can benefit from your programs?',
-    answer: 'Students, job seekers, and professionals looking to upskill, as well as businesses seeking qualified talent.'
+    question: "Is the mentorship program paid?",
+    answer: "Yes, it follows a pay-after-placement model—you only pay after securing a job."
   },
   {
-    question: 'How does your job assistance program work?',
-    answer: 'Our job assistance services include resume optimization, job application strategies, interview preparation, and regular job updates, with payment required only after you secure a job.'
-  },
-  {
-    question: 'How can I get involved?',
-    answer: 'Join our programs, and internships, or connect with us for tailored solutions through our website.'
-  },
+    question: "How does job assistance work?",
+    answer: "It includes resume reviews, interview prep, and job referrals, with payment required only after you get hired."
+  }
 ];
 
 const FAQ = () => {
@@ -35,7 +32,6 @@ const FAQ = () => {
     <section className="py-20 px-8 bg-white">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-16">
-          <p className="text-blue-600 font-semibold mb-4">F.A.Q.</p>
           <h2 className="text-4xl font-bold text-gray-900">Have any Question?</h2>
         </div>
         <div className="space-y-4">

@@ -3,8 +3,8 @@ import { Phone, MapPin, Mail } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-white text-blue-900 py-16 border-t-4 border-blue-500">
-      <div className="container mx-auto grid md:grid-cols-4 gap-12">
+    <footer className="bg-white text-blue-900 py-16 border-t-2 border-gray-500 animate-fade-in-up">
+      <div className="container mx-auto grid md:grid-cols-3 gap-12">
         {/* Logo and Tagline */}
         <div>
           <img
@@ -15,21 +15,11 @@ const Footer = () => {
           <p className="text-blue-700 text-lg leading-relaxed">Empowering Careers, Delivering Excellence in Data Analytics and Digital Innovation.</p>
         </div>
 
-        {/* Industrial Support */}
-        <div>
-          <h3 className="text-2xl font-bold mb-6">Industrial Support</h3>
-          <ul className="text-blue-700 space-y-3">
-            {['E-commerce', 'Retail', 'Marketing', 'Real Estate', 'Healthcare'].map((item) => (
-              <li key={item} className="hover:text-blue-500 cursor-pointer">{item}</li>
-            ))}
-          </ul>
-        </div>
-
         {/* Quick View */}
         <div>
           <h3 className="text-2xl font-bold mb-6">Quick View</h3>
           <ul className="text-blue-700 space-y-3">
-            {[
+            {[ 
               { label: 'Home', link: '/' },
               { label: 'Programs', link: '/programs' },
               { label: 'Mentorship Program', link: '/mentorship-program' },

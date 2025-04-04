@@ -2,7 +2,7 @@ import { ArrowRight } from 'lucide-react';
 
 export default function Hero() {
     return (
-        <div className="mt-14 flex flex-col items-center justify-center bg-gray-100 py-16 px-4 text-gray-900">
+        <div className="mt-20 flex flex-col items-center justify-center bg-gray-100 py-16 px-4 text-gray-900">
             <div className="text-center">
                 <h3 className="text-4xl font-bold mb-4 text-blue-600 drop-shadow-lg">
                     Job <span className="text-gray-700">Assistance</span>

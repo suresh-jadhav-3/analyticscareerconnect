@@ -1,18 +1,19 @@
-import React from 'react';
-import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react'
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-const Hero = () => {
+function Hero() {
   return (
     <section className="min-h-screen flex items-center justify-center p-8 bg-white">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <div className="space-y-8 transform hover:scale-105 transition-transform duration-500">
+        <div className="space-y-8 ">
           <h1 className="text-5xl md:text-7xl font-bold text-gray-900">
             <span className="text-blue-600">Bridging</span> Gaps,{' '}
             <span className="text-blue-600">Delivering IT</span> Solutions.
           </h1>
           <p className="text-xl text-gray-600">
-            Empowering businesses with customized IT solutions while addressing critical skill gaps for sustainable growth.
+            empowering 10 million youth in Bharat by making technical education both affordable and accessible. Leveraging technology-driven solutions, it aims to bridge the gap between education and employment by providing industry-relevant skills. The initiative targets individuals from Tier 2, 3, and 4 cities to create equal opportunities for career-building in tech. Committed to addressing India's unemployment issue, it offers job-ready skills, mentorship, and freelancing opportunities through internships and job assistance, transforming freshers and professionals into valuable industry talent.
+
           </p>
           <Link
             to='/contact'
@@ -32,7 +33,7 @@ const Hero = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero

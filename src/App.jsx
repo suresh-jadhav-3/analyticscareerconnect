@@ -1,7 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route, Link, useParams } from "react-router-dom";
 import Header from './components/layout/NavBar'
-import Footer from './components/layout/Footer';
 import Home from './pages/Home/Home';
 import Program from './pages/Programs/Program';
 import MentorshipProgram from './pages/MentorshipProgram/MentorshipProgram';
@@ -12,6 +11,7 @@ import Contact from './pages/Contact/Contact';
 import Career from './pages/Career/Career';
 import { BlogList } from './pages/Blog/BlogList';
 import { BlogPost } from './pages/Blog/BlogPost';
+import Service from './pages/Service/Services';
 
 
 function App() {
@@ -29,8 +29,8 @@ function App() {
         <Route path='/blog' element={<BlogList/>}/>
         <Route path="/blog/:id" element={<BlogPost />}/>
         <Route path='/career' element={<Career/>}/>
+        <Route path='/service' element={<Service/>}/>
       </Routes>
-      <Footer/>
     </Router>
   )
 }

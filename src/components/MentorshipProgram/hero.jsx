@@ -2,7 +2,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
     return (
-      <div className="mt-14 flex flex-col items-center justify-center bg-gray-100 py-16 px-4 text-gray-900">
+      <div className="mt-20 flex flex-col items-center justify-center bg-gray-100 py-16 px-4 text-gray-900">
         <div className="text-center">
           <h3 className="text-4xl font-bold mb-4 text-blue-600 drop-shadow-lg">
             Mentorship <span className="text-gray-700">Program</span>
@@ -25,7 +25,7 @@ export default function Hero() {
                 alt="Mentorship Program" 
                 className="w-full h-64 object-cover rounded-lg mb-4"
               />
-              <p className="text-lg italic text-gray-700">“With a vision to empower aspiring professionals, Wasim founded Analytics Career Connect to bridge the skill gap and provide mentorship that equips individuals with the tools for success in the data and tech industry.”</p>
+              <p className="text-lg italic text-gray-700">“The journey to a successful career in Data Analytics, Data Science, and Business Intelligence can be challenging. Many students and professionals struggle to find the right guidance, industry insights, and real-world experience. Our Mentorship Program is designed to bridge this gap by providing personalized guidance, hands-on learning, and career support to help you land your dream job.”</p>
             </div>
           </div>
         </div>

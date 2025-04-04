@@ -1,32 +1,25 @@
-import { User2 } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 
 const Contact = () => {
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-blue-500 to-blue-700 p-6">
-      <div className="max-w-lg w-full transform hover:scale-105 transition-all duration-500">
-        <div className="bg-white shadow-2xl rounded-2xl overflow-hidden p-6 text-center">
-          <div className="flex justify-center items-center bg-blue-500 text-white p-4 rounded-full w-20 h-20 mx-auto shadow-lg">
-            <User2 size={40} />
-          </div>
-          <h3 className="text-2xl font-bold text-gray-900 mt-4">Talk to a Mentor Today</h3>
-          <p className="text-gray-600 mt-2">
-            Connect with expert mentors who can guide you through your career journey,
-            provide personalized advice, and help you gain the skills needed to succeed in
-            data analytics, data science, and business intelligence.
+    <section className="py-16 bg-sky-400 text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold mb-6">
+            <MessageCircle className="inline-block mr-2 mb-1" /> Talk to a Mentor Today!
+          </h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto">
+            Connect with expert mentors who can guide you through your career journey, provide personalized advice, and help you gain the skills needed to succeed.
           </p>
-          <div className="mt-6">
-            <a
-              href="https://forms.gle/EDma1rVXWRSRfUAK9"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg shadow-lg inline-block"
-            >
-              Get in Touch
-            </a>
-          </div>
+          <a 
+            href="https://forms.gle/EDma1rVXWRSRfUAK9" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="bg-white text-sky-500 px-8 py-3 rounded-full font-semibold hover:bg-sky-50 transition duration-300 inline-block"
+          >
+            Join Now
+          </a>
         </div>
-      </div>
-    </div>
+      </section>
   );
 };
 

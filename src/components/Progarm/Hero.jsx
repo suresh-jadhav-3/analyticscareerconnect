@@ -1,14 +1,15 @@
 
 import React from 'react';
 import { CheckCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   const features = [
-    'Mentorship Program',
-    'Internship Program',
-    'Job Assistance Program',
-    'Fellowship Program',
-    'Consultation'
+    'Hands-on Projects',
+    'Expert Mentorship',
+    'Job Assistance',
+    'Real Industry Exposure',
+    'Career Guidance'
   ];
 
   return (
@@ -17,16 +18,16 @@ const Hero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
-              Build Your <span className="text-blue-600">Career with Our</span>
-              <br />
-              Tailored <span className="text-blue-600">Programs</span>
+              
+              Explore Our Programs – <span className="text-blue-600">Learn, Build &</span> Get Hired!
             </h1>
             <p className="text-xl text-gray-600">
-              Analytics Career Connect equips you with practical skills, industry knowledge, and career support in data analytics, science, and technology.
+
+            We offer hands-on training, mentorship, and job assistance to help you break into the tech industry. Whether you're a beginner or looking to advance your career, our programs are designed for real-world success.
             </p>
             <div className="space-y-4">
               {features.map((feature, index) => (
-                <div 
+                <div
                   key={index}
                   className="flex items-center space-x-3 transform hover:translate-x-2 transition-transform duration-300"
                 >
@@ -35,13 +36,13 @@ const Hero = () => {
                 </div>
               ))}
             </div>
-            <button  className="bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+            <Link to='/contact' className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
               Contact Us
-            </button>
+            </Link >
           </div>
           <div className="relative">
             <div className="w-full h-[500px] bg-gradient-to-tr from-blue-100 to-blue-50 rounded-2xl transform rotate-3 transition-transform duration-500 hover:rotate-0">
-              <img 
+              <img
                 src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
                 alt="Team collaboration"
                 className="w-full h-full object-cover rounded-2xl transform -rotate-3 transition-transform duration-500 hover:rotate-0"

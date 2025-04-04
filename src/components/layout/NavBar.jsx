@@ -10,8 +10,6 @@ const Header = () => {
   const location = useLocation();
   let dropdownTimer;
 
-
-  // Handle dropdown hover with delay
   const handleMouseEnter = () => {
     clearTimeout(dropdownTimer);
     setIsProgramsOpen(true);
@@ -44,38 +42,35 @@ const Header = () => {
 
           {/* Desktop Menu */}
           <nav className="hidden lg:flex items-center space-x-8">
-            <div className="flex items-center space-x-8 text-gray-600">
-              <Link to="/" className={` ${isActive("/") ? "text-blue-600 font-semibold" : ""}`}>Home</Link>
-              
-              {/* Programs Dropdown */}
-              <div 
-                className="relative"
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-              >
-                <button className="flex items-center gap-1 cursor-pointer">
-                  <Link to='/program' className={`${isActive("/program") ? "text-blue-600 font-semibold" : ""}`}> Programs</Link>
-                  {isProgramsOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-                </button>
+            <Link to="/" className={` ${isActive("/") ? "text-blue-600 font-semibold" : ""}`}>Home</Link>
+            
+            <div 
+              className="relative"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              <span className="flex items-center gap-1 cursor-pointer">
+                <Link to='/program' className={`${isActive("/program") ? "text-blue-600 font-semibold" : ""}`}>Programs</Link>
+                {isProgramsOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+              </span>
 
-                <div className={`absolute left-0 top-full pt-2 w-56 transition-all duration-200 ${
-                  isProgramsOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none'
-                }`}>
-                  <div className="p-3 bg-white shadow-xl border border-gray-100">
-                    <Link to="/mentorship-program" className="dropdown-item block py-2">Mentorship Program</Link>
-                    <Link to="/internship-program" className="dropdown-item block py-2">Internship Program</Link>
-                    <Link to="/job-assistance-program" className="dropdown-item block py-2">Job Assistance</Link>
-                  </div>
+              <div className={`absolute left-0 top-full pt-2 w-56 transition-all duration-200 ${
+                isProgramsOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none'
+              }`}>
+                <div className="p-3 bg-white shadow-xl border border-gray-100">
+                  <Link to="/mentorship-program" className="dropdown-item block py-2">Mentorship Program</Link>
+                  <Link to="/internship-program" className="dropdown-item block py-2">Internship Program</Link>
+                  <Link to="/job-assistance-program" className="dropdown-item block py-2">Job Assistance</Link>
                 </div>
               </div>
-
-              {['/about', '/contact', '/blog', '/career'].map((path) => (
-                <Link key={path} to={path} className={`nav-link ${isActive(path) ? "text-blue-600 font-semibold" : ""}`}>{path.slice(1).charAt(0).toUpperCase() + path.slice(2)}</Link>
-              ))}
             </div>
 
+            {['/about', '/contact', '/service', '/blog', '/career'].map((path) => (
+              <Link key={path} to={path} className={`nav-link ${isActive(path) ? "text-blue-600 font-semibold" : ""}`}>{path.slice(1).charAt(0).toUpperCase() + path.slice(2)}</Link>
+            ))}
+
             <Link 
-              to="/enroll"
+              to="/"
               className="px-6 py-2.5 rounded-full bg-blue-600 text-white font-medium hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/20 active:transform active:scale-95 transition-all duration-200"
             >
               ENROLL NOW
@@ -90,6 +85,34 @@ const Header = () => {
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
+
+        {/* Mobile Menu */}
+        {isOpen && (
+          <div className="lg:hidden fixed  right-0 w-3/4 h-screen bg-white shadow-lg z-50 flex flex-col space-y-4 py-4 px-6">
+            
+            <Link to="/" onClick={() => setIsOpen(false)} className={isActive("/") ? "text-blue-600 font-semibold" : ""}>Home</Link>
+
+            {/* Programs Dropdown for Mobile */}
+            <div>
+              <div className="flex justify-between items-center" onClick={() => setIsProgramsOpen(!isProgramsOpen)}>
+                <Link to="/program" onClick={() => setIsOpen(false)} className={isActive("/program") ? "text-blue-600 font-semibold" : ""}>Programs</Link>
+                {isProgramsOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+              </div>
+              {isProgramsOpen && (
+                <div className="pl-4 mt-2">
+                  <Link to="/mentorship-program" onClick={() => setIsOpen(false)} className="block py-2">Mentorship Program</Link>
+                  <Link to="/internship-program" onClick={() => setIsOpen(false)} className="block py-2">Internship Program</Link>
+                  <Link to="/job-assistance-program" onClick={() => setIsOpen(false)} className="block py-2">Job Assistance</Link>
+                </div>
+              )}
+            </div>
+
+            {['/about', '/contact', '/service', '/blog', '/career'].map((path) => (
+              <Link key={path} to={path} onClick={() => setIsOpen(false)} className={isActive(path) ? "text-blue-600 font-semibold" : ""}>{path.slice(1).charAt(0).toUpperCase() + path.slice(2)}</Link>
+            ))}
+
+          </div>
+        )}
       </div>
     </header>
   );

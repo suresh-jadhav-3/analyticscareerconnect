@@ -1,209 +1,177 @@
-import { useState } from 'react';
-import { BriefcaseIcon, Users2Icon, GraduationCapIcon, HeartHandshakeIcon, AlertTriangleIcon, UsersIcon, PaletteIcon, BookIcon } from 'lucide-react';
+import React from 'react';
+import Hero from '../../components/Career/Hero';
+import WhyJoinUs from '../../components/Career/WhyJoinUs';
+import OpenPositions from '../../components/Career/Jobs';
+import HiringProcess from '../../components/Career/HiringProcess';
+import { Briefcase, GraduationCap, Home, Instagram, Linkedin, Mail, MapPin, Phone, Shield, Twitter } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-const jobs = [
-  {
-    title: 'WordPress Developer Intern',
-    responsibilities: [
-      'Design, develop, and maintain WordPress websites',
-      'Optimize website performance and ensure mobile responsiveness',
-      'Collaborate with the team to integrate plugins and custom features'
-    ],
-    requirements: [
-      'Basic knowledge of WordPress development',
-      'Familiarity with HTML, CSS, and JavaScript',
-      'A creative mindset with attention to detail'
-    ],
-    icon: <BriefcaseIcon className="w-6 h-6" />
-  },
-  {
-    title: 'Data Analyst Intern',
-    responsibilities: [
-      'Analyze and interpret complex datasets to uncover actionable insights',
-      'Create dashboards and visualizations using tools like Excel, Power BI, or Tableau',
-      'Assist in preparing reports and presentations'
-    ],
-    requirements: [
-      'Strong analytical skills and attention to detail',
-      'Proficiency in Excel and at least one data visualization tool',
-      'Basic understanding of SQL is a plus'
-    ],
-    icon: <Users2Icon className="w-6 h-6" />
-  },
-  {
-    title: 'Product Analyst Intern',
-    responsibilities: [
-      'Research and analyze user needs to improve product offerings',
-      'Support the product lifecycle from ideation to deployment',
-      'Track and report on product performance metrics'
-    ],
-    requirements: [
-      'Interest in product development and market research',
-      'Strong problem-solving and analytical skills',
-      'Basic knowledge of Agile methodologies is a bonus'
-    ],
-    icon: <GraduationCapIcon className="w-6 h-6" />
-  },
-  {
-    title: 'Graphic Designer Inter',
-    responsibilities: [
-     'Design marketing materials, social media posts, and presentations',
-     'Collaborate with the team to create visually appealing graphics',
-     'Ensure brand consistency in all visual outputs'   
-    ],
-    requirements: [
-        'Proficiency in design tools like Adobe Illustrator, Photoshop, or Canva',
-        'Creative thinking and strong visual design skills',
-        'A portfolio showcasing design work'
-    ],
-    icon: <PaletteIcon className="w-6 h-6" />
-  },
-  {
-    title:'Human Resource Intern',
-    responsibilities: [
-        'Assist in recruitment, onboarding, and employee engagement activities',
-        'Maintain and update employee records',
-        'Support HR team with day-to-day operations'
-    ],
-    requirements: [
-        'Interest in HR and people management',
-        'Strong organizational and communication skills',
-        'Knowledge of MS Office tools is a plus'
-    ],
-    icon: <UsersIcon className="w-6 h-6" />
-  },
-  {
-    title:'Founding Team Roles',
-    responsibilities: [
-        'Work closely with the CEO and founding team on core business strategies',
-        'Contribute to decision-making and operational planning',
-        'Support key projects across various domains'
-    ],
-    requirements: [
-        'Entrepreneurial mindset and willingness to take ownership',
-        'Exceptional problem-solving and multitasking skills',
-        'Strong communication and leadership potential'
-    ],
-    icon: <BriefcaseIcon className="w-6 h-6" />
-  },
-  {
-    title: 'General Internship Opportunities (1st to 4th Year Students)',
-    responsibilities: [
-        'Work on diverse projects tailored to your interests and skills',
-        'Gain exposure to real-world challenges and solutions',
-        'Collaborate with experienced professionals to learn and grow'
-    ],
-    requirements: [
-        'Passion for learning and self-improvement',
-        'Basic knowledge of your chosen domain',
-        'Enthusiasm to contribute to team success'
-    ],
-    icon: <BookIcon className="w-6 h-6" />
-  }
-];
-
-function JobCard({ job }) {
-  const [isHovered, setIsHovered] = useState(false);
-
-  return (
-    <div
-      className="bg-white rounded-xl p-6 shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl flex flex-col h-full"
-      style={{
-        transform: isHovered ? 'translateY(-8px)' : 'none',
-        transition: 'transform 0.3s ease-in-out'
-      }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <div className="flex items-center gap-3 mb-4">
-        <div className="p-2 bg-blue-100 rounded-lg text-blue-600">
-          {job.icon}
-        </div>
-        <h3 className="text-xl font-bold text-gray-800">{job.title}</h3>
-      </div>
-
-      <div className="flex-grow space-y-4">
-        <div>
-          <h4 className="font-semibold text-blue-600 mb-2">Responsibilities:</h4>
-          <ul className="list-disc list-inside space-y-1 text-gray-600">
-            {job.responsibilities.map((resp, index) => (
-              <li key={index}>{resp}</li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <h4 className="font-semibold text-blue-600 mb-2">Requirements:</h4>
-          <ul className="list-disc list-inside space-y-1 text-gray-600">
-            {job.requirements.map((req, index) => (
-              <li key={index}>{req}</li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
-      {/* <button className="w-full py-2 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transform transition-transform duration-200 hover:scale-105 mt-6 cursor-pointer">
-       
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd3ObnIjdloTGp3OMRE8EGMDjYQP65zMV1Rnl2IP2OuO9RZbA/viewform"> Apply Now</a>
-      </button> */}
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd3ObnIjdloTGp3OMRE8EGMDjYQP65zMV1Rnl2IP2OuO9RZbA/viewform" target='blank' className='w-full py-2 px-4 bg-blue-600 text-white text-center rounded-lg hover:bg-blue-700 transform transition-transform duration-200 hover:scale-105 mt-6'> Apply Now</a>
-    </div>
-  );
-}
 
 function Career() {
   return (
-    <div className="mt-18 min-h-screen bg-gradient-to-br from-blue-50 to-white">
-      {/* Hero Section */}
-      <div className="container mx-auto px-4 py-16">
-        <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold text-gray-900 mb-6">
-            <span className="text-blue-600">Exciting</span> Opportunities Await{' '}
-            <span className="text-blue-600">We're</span> Hiring!
-          </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            We're looking for driven, enthusiastic individuals to join us. Explore our exciting
-            opportunities and start your journey toward a rewarding career.
-          </p>
-        </div>
+    <div className="min-h-screen mt-20 bg-gray-50">
+      <main>
 
-        {/* Jobs Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-16">
-          {jobs.map((job, index) => (
-            <JobCard key={index} job={job} />
-          ))}
-        </div>
-
-        {/* Why Join Us */}
-        <div className="bg-white rounded-2xl p-8 shadow-xl transform hover:scale-[1.02] transition-transform duration-300">
-          <div className="flex items-center gap-4 mb-6">
-            <HeartHandshakeIcon className="w-8 h-8 text-blue-600" />
-            <h2 className="text-3xl font-bold text-gray-900">Why Join Analytics Career Connect?</h2>
-          </div>
-          
-          <div className="space-y-4 text-gray-600">
-            <p className="text-lg font-semibold">
-              Take the first step towards a successful career.
-              Apply now and let's grow together!
-            </p>
-            <ul className="list-disc list-inside space-y-2">
-              <li>Real-world learning through live projects</li>
-              <li>Mentorship from experienced industry professionals</li>
-              <li>Opportunity to showcase your potential and secure a PPO</li>
-              <li>Be part of a thriving startup culture where your ideas are valued</li>
-            </ul>
-          </div>
-        </div>
-
+        <Hero />
+        <WhyJoinUs />
+        <OpenPositions />
+        <HiringProcess />
         {/* Warning Note */}
-        <div className="mt-8 bg-yellow-50 border border-yellow-200 rounded-lg p-4 flex items-center gap-3">
-          <AlertTriangleIcon className="w-6 h-6 text-yellow-600" />
-          <p className="text-yellow-800">
-            <strong>Important Note:</strong> Beware of fake job scams. Analytics Career Connect does
-            not send job offer emails or messages asking for money from applicants.
-          </p>
+        <div className="bg-red-50 py-8">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto text-center">
+              <h3 className="text-xl font-semibold text-red-600 mb-4">🚨 Important Note:</h3>
+              <p className="text-gray-800">
+                Beware of fake job scams! Analytics Career Connect NEVER asks for money in exchange for job offers.
+              </p>
+            </div>
+          </div>
+        </div>
+      </main>
+      {/* <footer className="bg-blue-900 text-white py-16">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-4 gap-8 mb-12">
+            <div>
+              <h3 className="text-xl font-semibold mb-6">About Us</h3>
+              <p className="text-white/80 mb-4">
+                Analytics Career Connect is dedicated to bridging the gap between talent and opportunity through mentorship, internships, and real-world learning experiences.
+              </p>
+              <div className="flex space-x-4">
+                <a href="#" className="text-white/80 hover:text-white transition-colors">
+                  <Linkedin className="h-6 w-6" />
+                </a>
+                <a href="#" className="text-white/80 hover:text-white transition-colors">
+                  <Instagram className="h-6 w-6" />
+                </a>
+                <a href="#" className="text-white/80 hover:text-white transition-colors">
+                  <Twitter className="h-6 w-6" />
+                </a>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold mb-6">Quick Links</h3>
+              <div className="space-y-3">
+                <Link href="/"><Home size={18} /> Home</Link>
+                <Link href="/careers"><Briefcase size={18} /> Careers</Link>
+                <Link href="/internships"><GraduationCap size={18} /> Internship Programs</Link>
+                <Link href="/contact"><Phone size={18} /> Contact Us</Link>
+                <Link href="/privacy"><Shield size={18} /> Privacy Policy</Link>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold mb-6">Contact Info</h3>
+              <div className="space-y-4">
+                <div>
+                  <a href="mailto:info@analyticscareerconnect.com">
+                    <Mail size={18} /> info@analyticscareerconnect.com
+                  </a>
+                </div>
+                <div>
+                  <a href="mailto:careers@analyticscareerconnect.com">
+                    <Mail size={18} /> careers@analyticscareerconnect.com
+                  </a>
+                </div>
+                <div className="flex items-center text-white/80">
+                  <MapPin className="h-5 w-5 mr-2" />
+                  <span>Remote & Hybrid Opportunities Available</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="border-t border-white/10 pt-8">
+            <div className="grid md:grid-cols-2 gap-4">
+              <p className="text-white/80 text-center md:text-left">
+                © 2024 Analytics Career Connect. All rights reserved.
+              </p>
+              <div className="flex justify-center md:justify-end space-x-6">
+                <a href="/terms" className="text-white/80 hover:text-white transition-colors">Terms of Service</a>
+                <a href="/privacy" className="text-white/80 hover:text-white transition-colors">Privacy Policy</a>
+                <a href="/cookies" className="text-white/80 hover:text-white transition-colors">Cookie Policy</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer> */}
+       <footer className="bg-white text-blue-900 py-16">
+      <div className="container mx-auto px-6">
+        <div className="grid md:grid-cols-4 gap-8 mb-12">
+          {/* About Section */}
+          <div>
+            <h3 className="text-xl font-semibold mb-6">About Us</h3>
+            <p className="text-blue-900/80 mb-4">
+              Analytics Career Connect is dedicated to bridging the gap between talent and opportunity through mentorship, internships, and real-world learning experiences.
+            </p>
+            <div className="flex space-x-4">
+              <a href="#" aria-label="LinkedIn" className="text-blue-900/80 hover:text-blue-900 transition-colors">
+                <Linkedin className="h-6 w-6" />
+              </a>
+              <a href="#" aria-label="Instagram" className="text-blue-900/80 hover:text-blue-900 transition-colors">
+                <Instagram className="h-6 w-6" />
+              </a>
+              <a href="#" aria-label="Twitter" className="text-blue-900/80 hover:text-blue-900 transition-colors">
+                <Twitter className="h-6 w-6" />
+              </a>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-xl font-semibold mb-6">Quick Links</h3>
+            <div className="space-y-3">
+              <Link href="/" className="flex items-center space-x-2 hover:text-blue-900 transition-colors">
+                <Home size={18} /> <span>Home</span>
+              </Link>
+              <Link href="/careers" className="flex items-center space-x-2 hover:text-blue-900 transition-colors">
+                <Briefcase size={18} /> <span>Careers</span>
+              </Link>
+              <Link href="/internships" className="flex items-center space-x-2 hover:text-blue-900 transition-colors">
+                <GraduationCap size={18} /> <span>Internship Programs</span>
+              </Link>
+              <Link href="/contact" className="flex items-center space-x-2 hover:text-blue-900 transition-colors">
+                <Phone size={18} /> <span>Contact Us</span>
+              </Link>
+              <Link href="/privacy" className="flex items-center space-x-2 hover:text-blue-900 transition-colors">
+                <Shield size={18} /> <span>Privacy Policy</span>
+              </Link>
+            </div>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h3 className="text-xl font-semibold mb-6">Contact Info</h3>
+            <div className="space-y-4">
+              <a href="mailto:info@analyticscareerconnect.com" className="flex items-center space-x-2 hover:text-blue-900 transition-colors">
+                <Mail size={18} /> <span>info@analyticscareerconnect.com</span>
+              </a>
+              <a href="mailto:careers@analyticscareerconnect.com" className="flex items-center space-x-2 hover:text-blue-900 transition-colors">
+                <Mail size={18} /> <span>careers@analyticscareerconnect.com</span>
+              </a>
+              <div className="flex items-center text-blue-900/80">
+                <MapPin className="h-5 w-5 mr-2" />
+                <span>Remote & Hybrid Opportunities Available</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer Bottom Section */}
+        <div className="border-t border-blue-900/10 pt-8">
+          <div className="grid md:grid-cols-2 gap-4">
+            <p className="text-blue-900/80 text-center md:text-left">
+              &copy; {new Date().getFullYear()} Analytics Career Connect. All rights reserved.
+            </p>
+            <div className="flex justify-center md:justify-end space-x-6">
+              <Link href="/terms" className="text-blue-900/80 hover:text-blue-900 transition-colors">Terms of Service</Link>
+              <Link href="/privacy" className="text-blue-900/80 hover:text-blue-900 transition-colors">Privacy Policy</Link>
+              <Link href="/cookies" className="text-blue-900/80 hover:text-blue-900 transition-colors">Cookie Policy</Link>
+            </div>
+          </div>
         </div>
       </div>
+    </footer>
     </div>
   );
 }

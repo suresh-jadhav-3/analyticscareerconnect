@@ -1,22 +1,30 @@
-import React from 'react'
-import Hero from '../../components/About/Hero'
-import WhatWeDo from '../../components/About/WhatWeDo'
-import Team from '../../components/About/Team'
-import Journey from '../../components/About/Journey'
-import FAQ from '../../components/About/FAQ'
-import CTA from '../../components/About/CTA'
 
-function About() {
-    return (
-        <div className="mt-20 bg-gradient-to-br from-gray-50 to-blue-50 text-gray-900">
-            <Hero />
-            <WhatWeDo />
-            <Team />
-            <Journey />
-            <FAQ />
-            <CTA />
-        </div>
-    )
-}
 
-export default About
+import React from 'react';
+import FAQ from '../../components/About/FAQ';
+import Hero from '../../components/About/Hero';
+import InsightSection from '../../components/About/InsightSection';
+import VisionSection from '../../components/About/VisionSection';
+import Contact from '../../components/About/Contact';
+import Footer from '../../components/layout/Footer'
+
+
+
+const About = () => {
+
+
+  return (
+    <>
+      <div className="min-h-screen mt-20 bg-gradient-to-br from-gray-50 to-blue-50">
+        <Hero />
+        <InsightSection />
+        <VisionSection />
+        <Contact />
+        <FAQ />
+      </div>
+      <Footer/>
+    </>
+  );
+};
+
+export default About;
