@@ -68,13 +68,6 @@ const Header = () => {
             {['/about', '/contact', '/service', '/blog', '/career'].map((path) => (
               <Link key={path} to={path} className={`nav-link ${isActive(path) ? "text-blue-600 font-semibold" : ""}`}>{path.slice(1).charAt(0).toUpperCase() + path.slice(2)}</Link>
             ))}
-
-            <Link 
-              to="/"
-              className="px-6 py-2.5 rounded-full bg-blue-600 text-white font-medium hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/20 active:transform active:scale-95 transition-all duration-200"
-            >
-              ENROLL NOW
-            </Link>
           </nav>
 
           {/* Mobile Menu Button */}
